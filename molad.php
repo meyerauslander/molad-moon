@@ -25,9 +25,16 @@ $target_hour = 20;
 $target_chalakim = 701;
 
 // According to Luach Ezras Torah, molad for tishrei in 5782, 2 5 497 
-// $target_day = 2;
+$target_day = 2;
 // $target_hour = 5;
-// $target_chalakim = 497;
+$target_hour = 4;
+$target_chalakim = 497;
+
+// Molad of Adam HaRishone
+// $target_day = 6;
+// $target_hour = 14;
+// $target_chalakim = 0;
+
 
 // test
 // $target_day = 3;
@@ -74,12 +81,9 @@ class time{
   }
 }
 
-$current_time = new time(FIRST_MOLAD_DAY, FIRST_MOLAD_HOUR, FIRST_MOLAD_CHALAKIM);
-
 // There have not yet been 75,000 moladim since creation
-//
 for ($i=1;$i<75000;$i++){
-// for ($i=1;$i<4;$i++){
+// for ($i=1;$i<13;$i++){
   // Chalkim
   $current_time->add(ONE_LUNAR_MONTH_DAYS,ONE_LUNAR_MONTH_HOURS,ONE_LUNAR_MONTH_CHALAKIM);
   if ( $current_time->is_equal($target_day,$target_hour,$target_chalakim) ) {
