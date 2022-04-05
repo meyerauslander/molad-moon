@@ -6,18 +6,18 @@
  */
 
 // Tos say the first year molad is Day 2, 5th hour, 204 chalakim (one lunar year before Day 6 )
-// define('FIRST_MOLAD_DAY',2);
-// define('FIRST_MOLAD_HOUR',5);
-// define('FIRST_MOLAD_CHALAKIM',204);
+define('FIRST_MOLAD_DAY',2);
+define('FIRST_MOLAD_HOUR',5);
+define('FIRST_MOLAD_CHALAKIM',204);
 
 // define('FIRST_MOLAD_DAY',2);
 // define('FIRST_MOLAD_HOUR',11);
 // define('FIRST_MOLAD_CHALAKIM',497);
 
 // Tishrei 5781 5 20 701
-define('FIRST_MOLAD_DAY',5);
-define('FIRST_MOLAD_HOUR',20);
-define('FIRST_MOLAD_CHALAKIM',701);
+// define('FIRST_MOLAD_DAY',5);
+// define('FIRST_MOLAD_HOUR',20);
+// define('FIRST_MOLAD_CHALAKIM',701);
 
 // All agree one month is 29 days 12 hours and 793 chalakim
 define('ONE_LUNAR_MONTH_DAYS',1); // 1 is 29 % 7, the other 28 days don't change the day of the week.
@@ -32,45 +32,46 @@ define('MONTHS_PER_MACHZOR',235);
 define('YEARS_PER_MACHZOR',19);
 
 global $target_day, $target_hours, $target_chalakim;
-// According to my calculation, molad for tishrei in 5782, 3 20 701
+
+// According to Luach Ezras Torah, molad for tishrei in 5782, Monday night 27m 11 chalakim after 11 (11:27pm and 11 ch)
+// 27m = 486ch  after 11 at night =? 11h VERIFIED! 71501
 // $target_day = 3;
-// $target_hours = 19; //20
-// $target_chalakim = 701;
+// $target_hours = 5; //4; //5
+// $target_chalakim = 497;
 
-// According to Luach Ezras Torah, molad for tishrei in 5782, Monday night 27m 11 chalakim after 11
-// 27m = 486ch  after 11 at night =? 11h
-$target_day = 2;
-$target_hours = 11; //4; //5
-$target_chalakim = 497;
-
-// According to Luach Ezras Torah, molad for chashvan in 5782, Monday night 11m 12ch after 12
-// 11m = 198ch  after 12 at night =? 12h ??????
-// $target_day = 2;
-// $target_hours = 12; //4; //5
+// According to Luach Ezras Torah, molad for chashvan in 5782, Wednesday 12:11pm 12ch 
+// 11m = 198ch  VERIFIED!!
+// $target_day = 4;
+// $target_hours = 18; //4; //5
 // $target_chalakim = 210;
 
 // According to Luach Ezras Torah, molad for Tishrei in 5781, Thursday 2:38pm 17ch
-// 38m = 684ch  2:38pm = 12 + 8 = 20
+// equivalent to Thursday Nachmitig 38 min 17ch after 2
+// 38m = 684ch  2:38pm = 12 + 8 = 20  VERIFIED!
 // $target_day = 5;
 // $target_hours = 20; 
 // $target_chalakim = 701;
 
-// Molad of Adam HaRishone
+// According to Luach Ezras Torah, molad for Tamuz in 5781, Thursday 9:15am 8ch
+// equivalent to Thursday Anifarfary 15 min with 8ch after 9
+// 15m = 270ch  9:15am = 12 + 3 = 15m VERIFIED! molad 71498
+// $target_day = 5;
+// $target_hours = 15; 
+// $target_chalakim = 278;
+
+
+// Molad of Adam HaRishone VERIFIED
 // $target_day = 6;
 // $target_hours = 14;
 // $target_chalakim = 0;
 
 
-// According to Luach Ezras Torah, molad for nisan in 5782, Friday night 36m 0 chalakim after 4
-// 36m = 648ch  after 4 at night =? 4h
-// $target_day = 6;
-// $target_hours = 4; //4; //5
-// $target_chalakim = 648;
+// According to Luach Ezras Torah, molad for nisan in 5782, Friday 36m 0 chalakim after 4 4:36pm Friday VERIFIED  #71508
+// 36m = 648ch  
+$target_day = 6;
+$target_hours = 22; //4; //5
+$target_chalakim = 648;
 
-// test
-// $target_day = 3;
-// $target_hours = 17;
-// $target_chalakim = 997;
 
 
 class time_of_week{
@@ -119,6 +120,7 @@ function main(){
   // There have not yet been 75,000 moladim since creation.
   for ($molad=1;$molad<75000;$molad++){
   // for ($molad=1;$molad<13;$molad++){
+    // for ($molad=71498;$molad<71502;$molad++){  // tamuz av elul tishreai 81 to 82
     // Chalkim
     $current_time->add(ONE_LUNAR_MONTH_DAYS,ONE_LUNAR_MONTH_HOURS,ONE_LUNAR_MONTH_CHALAKIM);
     if ( $current_time->is_equal($target_day,$target_hours,$target_chalakim) ) {
