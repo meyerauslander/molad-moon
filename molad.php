@@ -5,6 +5,14 @@
  * Based on tos D"H "V"Litikoofa" Rosh Hashana 8a - 8b
  */
 
+/**
+ * How often does day and time of molad repeat.
+ * 
+ * 1 day 12 hours 739 chalakim is 36h 739ch is 38880 = 2^5 x 3^5 x 5
+ * the total chalikim in a week is 7 days is 168h is 181400 = 2^3 x 5^2 x 907
+ * common factor 2^3,5 = 40   (972,4535)
+ */
+
 // Tos say the first year molad is Day 2, 5th hour, 204 chalakim (one lunar year before Day 6 )
 define('FIRST_MOLAD_DAY',2);
 define('FIRST_MOLAD_HOUR',5);
