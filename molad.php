@@ -8,12 +8,15 @@
 /**
  * How often does day and time of molad repeat.
  * 
- * 1 day 12 hours 739 chalakim is 36h 739ch is 38880 = 2^5 x 3^5 x 5
- * the total chalikim in a week is 7 days is 168h is 181400 = 2^3 x 5^2 x 907
- * common factor 2^3,5 = 40   (972,4535)
+ * 1 day 12 hours 793 chalakim is 36h 793ch is 39673 = 97 * 409
+ * the total chalikim in a week is 7 days is 168h is 181440 = 2^6 x 3^4 x 5 x 7
+ * These numbers have no common factors.  The first molad wont repeat until molad 181440
+ * Molad 181400 will be after 14669 years and 8 months.
+ *
  */
 
 // Tos say the first year molad is Day 2, 5th hour, 204 chalakim (one lunar year before Day 6 )
+// 57444 chalakim
 define('FIRST_MOLAD_DAY',2);
 define('FIRST_MOLAD_HOUR',5);
 define('FIRST_MOLAD_CHALAKIM',204);
@@ -28,6 +31,7 @@ define('FIRST_MOLAD_CHALAKIM',204);
 // define('FIRST_MOLAD_CHALAKIM',701);
 
 // All agree one month is 29 days 12 hours and 793 chalakim
+// Adds 39673
 define('ONE_LUNAR_MONTH_DAYS',1); // 1 is 29 % 7, the other 28 days don't change the day of the week.
 define('ONE_LUNAR_MONTH_HOURS',12);
 define('ONE_LUNAR_MONTH_CHALAKIM',793);
@@ -69,16 +73,17 @@ global $target_day, $target_hours, $target_chalakim;
 
 
 // Molad of Adam HaRishone VERIFIED
-// $target_day = 6;
-// $target_hours = 14;
-// $target_chalakim = 0;
+$target_day = 6;
+$target_hours = 14;
+$target_chalakim = 0;
+
 
 
 // According to Luach Ezras Torah, molad for nisan in 5782, Friday 36m 0 chalakim after 4 4:36pm Friday VERIFIED  #71508
 // 36m = 648ch  
-$target_day = 6;
-$target_hours = 22; //4; //5
-$target_chalakim = 648;
+// $target_day = 6;
+// $target_hours = 22; //4; //5
+// $target_chalakim = 648;
 
 
 
@@ -127,6 +132,7 @@ function main(){
 
   // There have not yet been 75,000 moladim since creation.
   for ($molad=1;$molad<75000;$molad++){
+    // for ($molad=1;$molad<181453;$molad++){
   // for ($molad=1;$molad<13;$molad++){
     // for ($molad=71498;$molad<71502;$molad++){  // tamuz av elul tishreai 81 to 82
     // Chalkim
